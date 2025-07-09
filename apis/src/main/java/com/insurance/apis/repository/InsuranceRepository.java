@@ -27,7 +27,7 @@ public class InsuranceRepository {
         hashOps.put(KEY, null, insurance);
     }
 
-    public Insurance findById(UUID id){
+    public Insurance findById(String id){
         return hashOps.get(KEY, id);
     }
 
@@ -35,7 +35,10 @@ public class InsuranceRepository {
         return new ArrayList<>(hashOps.entries(KEY).values());
     }
 
-    public void delete(UUID id) {
+    public void deleteById(String id) {
         hashOps.delete(KEY, id);
+    }
+    public boolean existsById(String id){
+        return hashOps.hasKey(KEY, id);
     }
 }

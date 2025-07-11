@@ -16,13 +16,13 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Insurance {
     @Id
-    private String id ;
-    private String ClientName;
+    private UUID id;
+    private String clientName;
     private InsuranceType insuranceType;
-    private Date StartDate;
-    private Date EndDate;
+    private Date startDate;
+    private Date endDate;
 
     public void generateId() {
-        this.id =   UUID.randomUUID().toString();
+        this.id = UUID.randomUUID();
     }
 }

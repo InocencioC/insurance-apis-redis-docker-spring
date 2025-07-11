@@ -9,7 +9,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.insurance.apis.model.Insurance;
-
 @Repository
 public class InsuranceRepository {
     
@@ -24,10 +23,13 @@ public class InsuranceRepository {
     private final String KEY = "Insurance";
 
     public void save(Insurance insurance){
-        hashOps.put(KEY, null, insurance);
+    if(insurance.getId() == null){
+        insurance.setId(UUID.randomUUID());
+      }
+        hashOps.put(KEY, insurance.getId(), insurance); 
     }
 
-    public Insurance findById(String id){
+    public Insurance findById(UUID id){
         return hashOps.get(KEY, id);
     }
 
@@ -35,10 +37,10 @@ public class InsuranceRepository {
         return new ArrayList<>(hashOps.entries(KEY).values());
     }
 
-    public void deleteById(String id) {
+    public void deleteById(UUID id) {
         hashOps.delete(KEY, id);
     }
-    public boolean existsById(String id){
+    public boolean existsById(UUID id){
         return hashOps.hasKey(KEY, id);
     }
 }

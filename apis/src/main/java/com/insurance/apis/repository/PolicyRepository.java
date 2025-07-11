@@ -8,8 +8,6 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.insurance.apis.model.Policy;
-
-
 @Repository
 public class PolicyRepository {
 

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ApisApplication<apis>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.insurance.apis.ApisApplication",
+            "projectName": "apis",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
